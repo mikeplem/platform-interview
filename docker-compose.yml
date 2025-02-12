@@ -1,0 +1,5 @@
+services:
+  interview:
+    image: platform-interview:0.0.1-SNAPSHOT
+    ports:
+      - 8090:8080
