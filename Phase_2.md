@@ -4,11 +4,11 @@ To give some background, I have not touched Kubernetes in over 5 years. My previ
 
 My choice here is to go with something lightweight, as requested, but also fully supported by the CNCF. I have also chosen a tool that I have been curious about for some time. I have chosen [k3s](https://k3s.io/).
 
-## Pre-requisites
+## Prerequisites
 
 ## Kubernetes
 
-Instsall kubernetes to support non root access. [This documentation](https://dev.to/fransafu/the-first-experience-with-k3s-lightweight-kubernetes-deploy-your-first-app-44ea) was used for reference.
+Install kubernetes to support non root access. [This documentation](https://dev.to/fransafu/the-first-experience-with-k3s-lightweight-kubernetes-deploy-your-first-app-44ea) was used for reference.
 
 ```
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" sh -s -
@@ -28,7 +28,7 @@ It will be necessary to store the Docker image in a registry in order to deploy 
 docker run -d -p 5000:5000 --restart always --name registry registry:2.8.3
 ```
 
-The docker registy hostname will be `localhost:5000`
+The docker registry hostname will be `localhost:5000`
 
 ### Push to Registry
 
@@ -120,7 +120,7 @@ Using generated security password: da900e05-20df-4e26-8fe4-900ba406fafb
 
 ### Problems
 
-I have been fighting with the Traefik ingress in k3s and I cannot spend anymore time on it. I am missing someting extremely simple where the ingress is not seeing a service port and I am stumped as to what's wrong.
+I have been fighting with the Traefik ingress in k3s and I cannot spend anymore time on it. I am missing something extremely simple where the ingress is not seeing a service port and I am stumped as to what's wrong.
 
 I know the Deployment is working because I can port forward using kubectl to talk to the application.
 
@@ -136,7 +136,7 @@ $ curl localhost:8080
 Welcome to the Platform team!
 ```
 
-I found [some documentation](https://dev.to/sklarsa/k3s-traefik-ingress-configured-for-your-homelab-58lc) about needing to config extra ports for Traefik and that gave me some interesting ideas but I still run into the same problems with service issues.
+I found [some documentation](https://dev.to/sklarsa/k3s-traefik-ingress-configured-for-your-homelab-58lc) about needing to configure extra ports for Traefik and that gave me some interesting ideas but I still run into the same problems with service issues.
 
 ```
 time="2025-02-12T02:17:51Z" level=error msg="Skipping service: no endpoints found" namespace=default serviceName=interview servicePort="&ServiceBackendPort{Name:,Number:8080,}" providerName=kubernetes ingress=interview

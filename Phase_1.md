@@ -1,6 +1,6 @@
 # Phase 1
 
-## Pre-requisites
+## Prerequisites
 
 On a Debian 12 (bookworm) based system the following software is required to create a successful Docker container.
 
@@ -15,7 +15,7 @@ Start docker: `sudo systemctl start docker`
 ## Build The Java Application
 
 - Clone this repository
-- change directory into the reposistory
+- change directory into the repository
 - Enter `make build`
 
 ## Build the Docker Container
